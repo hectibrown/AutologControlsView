@@ -1,2 +1,2 @@
 # AutologControlsView
- Powered by AdvancedHMIv399xBeta2
+ Powered by AdvancedHMIv399xBeta28
