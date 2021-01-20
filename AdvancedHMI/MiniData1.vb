@@ -17,6 +17,14 @@
     Dim g_bGates(32) As Boolean
     Dim g_dCitSkids As Int32
     Dim g_bCitSkids(32) As Boolean
+    Dim g_dPc As Int32
+    Dim g_bPc(32) As Boolean
+    Dim g_dFence As Int32
+    Dim g_bFence(32) As Boolean
+    Dim g_dBin1to32 As Int32
+    Dim g_dBin33to39 As Int32
+    Dim g_bBin1to32(32) As Boolean
+    Dim g_bBin33to39(32) As Boolean
     Dim g_bTemp1(32) As Boolean
     '*******************************************************************************
     '* Stop polling when the form is not visible in order to reduce communications
@@ -119,7 +127,13 @@
         g_dGates = DataSubscriber21.PLCAddressValueItems(1).LastValue
         'Cit SKids
         g_dCitSkids = DataSubscriber21.PLCAddressValueItems(2).LastValue
-        'Saws
+        'Pc
+        g_dPc = DataSubscriber21.PLCAddressValueItems(3).LastValue
+        'Fence
+        g_dFence = DataSubscriber21.PLCAddressValueItems(4).LastValue
+        'Bins
+        g_dBin1to32 = DataSubscriber21.PLCAddressValueItems(5).LastValue
+        g_dBin33to39 = DataSubscriber21.PLCAddressValueItems(6).LastValue
     End Sub
 
     Private Function byteToBits(ByVal byteToConvert As Int32) As String
@@ -187,6 +201,10 @@
         Dim Saws() As Button = New Button(10) {Saw0ft, Saw2ft, Saw4ft, Saw6ft, Saw8ft, Saw10ft, Saw12ft, Saw14ft, Saw16ft, Saw18ft, Saw20ft}
         Dim Gates() As Button = New Button(7) {Gate0, Gate1, Gate2, Gate3, Gate4, Gate5, Gate6, Gate7}
         Dim Cit() As Button = New Button(3) {Cit0, Cit1, Cit2, Cit3}
+        Dim Pc() As Button = New Button(8) {Pc0, Pc6, Pc8, Pc10, Pc12, Pc14, Pc16, Pc18, Pc20}
+        Dim Fence() As Button = New Button(11) {Fence0, Fence1, Fence2, Fence3, Fence4, Fence5, Fence6, Fence7, Fence8, Fence9, Fence10, Fence11}
+        Dim Bin1to32() As Button = New Button(31) {Bin1, Bin2, Bin3, Bin4, Bin5, Bin6, Bin7, Bin8, Bin9, Bin10, Bin11, Bin12, Bin13, Bin14, Bin15, Bin16, Bin17, Bin18, Bin19, Bin20, Bin21, Bin22, Bin23, Bin24, Bin25, Bin26, Bin27, Bin28, Bin29, Bin30, Bin31, Bin32}
+        Dim Bin33to39() As Button = New Button(6) {Bin33, Bin34, Bin35, Bin36, Bin37, Bin38, Bin39}
         'Saws
         Call byteToBits(g_dSaws)
         g_bSaws = g_bTemp1
@@ -216,6 +234,45 @@
                 Cit(i).BackColor = Color.Green
             Else
                 Cit(i).BackColor = Color.Gray
+            End If
+        Next
+        'PC
+        Call byteToBits(g_dPc)
+        g_bPc = g_bTemp1
+        For i As Int32 = 0 To 8
+            If g_bPc(i) Then
+                Pc(i).BackColor = Color.Green
+            Else
+                Pc(i).BackColor = Color.Gray
+            End If
+        Next
+        'Fence
+        Call byteToBits(g_dFence)
+        g_bFence = g_bTemp1
+        For i As Int32 = 0 To 8
+            If g_bFence(i) Then
+                Fence(i).BackColor = Color.Green
+            Else
+                Fence(i).BackColor = Color.Gray
+            End If
+        Next
+        'bin
+        Call byteToBits(g_dBin1to32)
+        g_bBin1to32 = g_bTemp1
+        For i As Int32 = 0 To 31
+            If g_bBin1to32(i) Then
+                Bin1to32(i).BackColor = Color.Green
+            Else
+                Bin1to32(i).BackColor = Color.Gray
+            End If
+        Next
+        Call byteToBits(g_dBin33to39)
+        g_bBin33to39 = g_bTemp1
+        For i As Int32 = 0 To 6
+            If g_bBin33to39(i) Then
+                Bin33to39(i).BackColor = Color.Green
+            Else
+                Bin33to39(i).BackColor = Color.Gray
             End If
         Next
     End Sub
