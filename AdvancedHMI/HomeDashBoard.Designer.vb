@@ -212,10 +212,10 @@ Partial Class HomeDashBoard
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(21, 121)
+        Me.Panel1.Location = New System.Drawing.Point(-1, 121)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(399, 759)
+        Me.Panel1.Size = New System.Drawing.Size(401, 750)
         Me.Panel1.TabIndex = 285
         '
         'Label5
@@ -343,8 +343,8 @@ Partial Class HomeDashBoard
         Me.EthernetIPforCLXCom1.DisableSubscriptions = False
         Me.EthernetIPforCLXCom1.IniFileName = ""
         Me.EthernetIPforCLXCom1.IniFileSection = Nothing
-        Me.EthernetIPforCLXCom1.IPAddress = "150.150.10.153"
-        Me.EthernetIPforCLXCom1.PollRateOverride = 250
+        Me.EthernetIPforCLXCom1.IPAddress = "150.150.10.151"
+        Me.EthernetIPforCLXCom1.PollRateOverride = 50
         Me.EthernetIPforCLXCom1.Port = 44818
         Me.EthernetIPforCLXCom1.ProcessorSlot = 0
         Me.EthernetIPforCLXCom1.RoutePath = Nothing
@@ -521,7 +521,7 @@ Partial Class HomeDashBoard
         Me.ComboBox1.Location = New System.Drawing.Point(603, 22)
         Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(207, 33)
+        Me.ComboBox1.Size = New System.Drawing.Size(593, 33)
         Me.ComboBox1.TabIndex = 298
         Me.ComboBox1.Text = "Test on/off"
         '
@@ -552,7 +552,7 @@ Partial Class HomeDashBoard
         Me.TrackBar1.Maximum = 60
         Me.TrackBar1.Minimum = 1
         Me.TrackBar1.Name = "TrackBar1"
-        Me.TrackBar1.Size = New System.Drawing.Size(473, 69)
+        Me.TrackBar1.Size = New System.Drawing.Size(489, 129)
         Me.TrackBar1.TabIndex = 309
         Me.TrackBar1.Value = 5
         '
@@ -566,7 +566,7 @@ Partial Class HomeDashBoard
         Me.TrackBar2.Maximum = 25
         Me.TrackBar2.Minimum = 1
         Me.TrackBar2.Name = "TrackBar2"
-        Me.TrackBar2.Size = New System.Drawing.Size(473, 69)
+        Me.TrackBar2.Size = New System.Drawing.Size(489, 129)
         Me.TrackBar2.TabIndex = 310
         Me.TrackBar2.Value = 2
         '
@@ -622,16 +622,12 @@ Partial Class HomeDashBoard
         '
         'Panel2
         '
-        Me.Panel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel2.AutoSize = True
         Me.Panel2.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.Panel2.Controls.Add(Me.DataGridView1)
         Me.Panel2.Location = New System.Drawing.Point(0, 118)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1900, 770)
+        Me.Panel2.Size = New System.Drawing.Size(1920, 740)
         Me.Panel2.TabIndex = 315
         '
         'DataGridView1
@@ -678,7 +674,7 @@ Partial Class HomeDashBoard
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 50
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(1839, 353)
+        Me.DataGridView1.Size = New System.Drawing.Size(1859, 692)
         Me.DataGridView1.TabIndex = 0
         '
         'Alarm
@@ -694,7 +690,6 @@ Partial Class HomeDashBoard
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(63, Byte), Integer), CType(CType(65, Byte), Integer))
         Me.MenuStrip1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.MenuStrip1.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SystemeToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
@@ -781,7 +776,7 @@ Partial Class HomeDashBoard
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = Global.MfgControl.AdvancedHMI.My.Resources.Resources.Autolog_logo_Officiel_sans_texte_transparent_white
-        Me.PictureBox1.Location = New System.Drawing.Point(1424, 2)
+        Me.PictureBox1.Location = New System.Drawing.Point(1479, 11)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(429, 103)
@@ -937,7 +932,7 @@ Partial Class HomeDashBoard
         Me.LenghtBarChart.Series.Add(Series8)
         Me.LenghtBarChart.Series.Add(Series9)
         Me.LenghtBarChart.Series.Add(Series10)
-        Me.LenghtBarChart.Size = New System.Drawing.Size(1187, 270)
+        Me.LenghtBarChart.Size = New System.Drawing.Size(1573, 390)
         Me.LenghtBarChart.TabIndex = 338
         Me.LenghtBarChart.Text = "Chart1"
         '
@@ -1089,7 +1084,7 @@ Partial Class HomeDashBoard
         Me.GradeBarChart.Series.Add(Series18)
         Me.GradeBarChart.Series.Add(Series19)
         Me.GradeBarChart.Series.Add(Series20)
-        Me.GradeBarChart.Size = New System.Drawing.Size(1187, 270)
+        Me.GradeBarChart.Size = New System.Drawing.Size(1573, 390)
         Me.GradeBarChart.TabIndex = 340
         Me.GradeBarChart.Text = "Chart1"
         '
@@ -1241,7 +1236,7 @@ Partial Class HomeDashBoard
         Me.DestBarChart.Series.Add(Series28)
         Me.DestBarChart.Series.Add(Series29)
         Me.DestBarChart.Series.Add(Series30)
-        Me.DestBarChart.Size = New System.Drawing.Size(1187, 270)
+        Me.DestBarChart.Size = New System.Drawing.Size(1573, 390)
         Me.DestBarChart.TabIndex = 341
         Me.DestBarChart.Text = "Chart1"
         '
@@ -1342,7 +1337,7 @@ Partial Class HomeDashBoard
         Me.KpiBackGround.Series.Add(Series33)
         Me.KpiBackGround.Series.Add(Series34)
         Me.KpiBackGround.Series.Add(Series35)
-        Me.KpiBackGround.Size = New System.Drawing.Size(284, 175)
+        Me.KpiBackGround.Size = New System.Drawing.Size(320, 295)
         Me.KpiBackGround.TabIndex = 342
         Me.KpiBackGround.Text = "Chart1"
         '
@@ -1433,6 +1428,7 @@ Partial Class HomeDashBoard
         'HomeDashBoard
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
+        Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1920, 1040)
         Me.ControlBox = False

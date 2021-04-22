@@ -1,5 +1,5 @@
 ﻿Public Class HomeDashBoard
-
+    Dim bIdDetailStructurePresent As Boolean = True 'For testing purposes, as of 2021-02-03
     Public stAlarm As New StAlarms
     Dim szString(249) As String
     Dim dMessageLoadStep As Int32 = 0
@@ -12,6 +12,7 @@
     Dim g_bCommsOk As Boolean = 0
     Dim g_dAcvReportsTest As New StACVReportsTest
     Dim g_stReportData As New StReportData
+    Dim g_szNewMessage As New StAlarmMessages
     'Dim g_bOff As Boolean = 0
 
     Private Sub HomeDashBoard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -144,6 +145,9 @@
             If g_dAcvNbAlarmsActive <> dNbPrevAlarms Then
                 Try
                     stAlarm.bBits = EthernetIPforCLXCom1.ReadUDT(Of StAlarmBits)("g_stAlarm.Bits") '("g_HMI_szAlarmHistory.Bits")
+                    If bIdDetailStructurePresent Then
+                        stAlarm.IdDetail = EthernetIPforCLXCom1.ReadUDT(Of StAlarmIdDetail)("g_stAlarm.IdDetail")
+                    End If
                     dNbPrevAlarms = g_dAcvNbAlarmsActive
                     'Call FbCheckAlarms()
                 Catch ex As MfgControl.AdvancedHMI.Drivers.Common.PLCDriverException
@@ -154,10 +158,10 @@
                     End If
                 End Try
             End If
-            If g_dAcvNbAlarmsActive > 0 Or ComboBox1.Text = "On" And g_dAcvNbAlarmsActive <> dNbPrevAlarms Then
+            If dMessageLoadStep = 3 And g_dAcvNbAlarmsActive > 0 Or ComboBox1.Text = "On" And g_dAcvNbAlarmsActive <> dNbPrevAlarms Then
                 dNbPrevAlarms = g_dAcvNbAlarmsActive
-                DataGridView1.Rows.Clear()
-                DataGridView1.Refresh()
+                'DataGridView1.Rows.Clear()
+                'DataGridView1.Refresh()
                 Call FbCheckAlarms()
                 'szMarqProdDisp.Text = szProductionDisplay.Value
                 'szMarqProdDisp.Visible = 1
@@ -202,16 +206,67 @@
         DataGridView1.Rows.Clear()
         For dIdx = 0 To 249
             If stAlarm.bBits.bIntlk(dIdx) Then
-                Me.DataGridView1.Rows.Insert(0, stAlarm.szString.szIntlk(dIdx))
+                If stAlarm.IdDetail.dIntlkIdDetail(dIdx) > 0 Then
+                    Call FindStars(stAlarm.szString.szIntlk(dIdx), dIdx, "INTLK")
+                    Me.DataGridView1.Rows.Insert(0, g_szNewMessage.szIntlk(dIdx))
+                Else
+                    Me.DataGridView1.Rows.Insert(0, stAlarm.szString.szIntlk(dIdx))
+                End If
             End If
             If stAlarm.bBits.bLineError(dIdx) Then
-                Me.DataGridView1.Rows.Insert(0, stAlarm.szString.szLineError(dIdx))
+                If stAlarm.IdDetail.dLeIdDetail(dIdx) > 0 Then
+                    Call FindStars(stAlarm.szString.szLineError(dIdx), dIdx, "LE")
+                    Me.DataGridView1.Rows.Insert(0, g_szNewMessage.szLineError(dIdx))
+                Else
+                    Me.DataGridView1.Rows.Insert(0, stAlarm.szString.szLineError(dIdx))
+                End If
             End If
             If stAlarm.bBits.bMsg(dIdx) Then
-                Me.DataGridView1.Rows.Insert(0, stAlarm.szString.szMsg(dIdx))
+                If stAlarm.IdDetail.dMsgIdDetail(dIdx) > 0 Then
+                    Call FindStars(stAlarm.szString.szMsg(dIdx), dIdx, "MSG")
+                    stAlarm.szString.szMsg(dIdx) = g_szNewMessage.szMsg(dIdx)
+
+                End If
+
             End If
         Next
         Me.DataGridView1.Sort(DataGridView1.Columns(0), 0)
+    End Sub
+
+    Sub FindStars(szMessage As String, dIdx As Int32, szErrorTyp As String)
+        Dim szNewMessage As String = szMessage
+        Dim szIdDetail As String = stAlarm.IdDetail.dIntlkIdDetail(dIdx)
+        If szErrorTyp = "INTLK" Then
+            If szNewMessage.Contains("****") Then
+                g_szNewMessage.szIntlk(dIdx) = szNewMessage.Replace("****", szIdDetail)
+            ElseIf szNewMessage.Contains("***") Then
+                g_szNewMessage.szIntlk(dIdx) = szNewMessage.Replace("***", szIdDetail)
+            ElseIf szNewMessage.Contains("**") Then
+                g_szNewMessage.szIntlk(dIdx) = szNewMessage.Replace("**", szIdDetail)
+            ElseIf szNewMessage.Contains("*") Then
+                g_szNewMessage.szIntlk(dIdx) = szNewMessage.Replace("*", szIdDetail)
+            End If
+        ElseIf szErrorTyp = "LE" Then
+            If szNewMessage.Contains("****") Then
+                g_szNewMessage.szLineError(dIdx) = szNewMessage.Replace("****", szIdDetail)
+            ElseIf szNewMessage.Contains("***") Then
+                g_szNewMessage.szLineError(dIdx) = szNewMessage.Replace("***", szIdDetail)
+            ElseIf szNewMessage.Contains("**") Then
+                g_szNewMessage.szLineError(dIdx) = szNewMessage.Replace("**", szIdDetail)
+            ElseIf szNewMessage.Contains("*") Then
+                g_szNewMessage.szLineError(dIdx) = szNewMessage.Replace("*", szIdDetail)
+            End If
+        ElseIf szErrorTyp = "MSG" Then
+            If szNewMessage.Contains("****") Then
+                g_szNewMessage.szMsg(dIdx) = szNewMessage.Replace("****", szIdDetail)
+            ElseIf szNewMessage.Contains("***") Then
+                g_szNewMessage.szMsg(dIdx) = szNewMessage.Replace("***", szIdDetail)
+            ElseIf szNewMessage.Contains("**") Then
+                g_szNewMessage.szMsg(dIdx) = szNewMessage.Replace("**", szIdDetail)
+            ElseIf szNewMessage.Contains("*") Then
+                g_szNewMessage.szMsg(dIdx) = szNewMessage.Replace("*", szIdDetail)
+            End If
+        End If
     End Sub
 
     Private Sub EthernetIPforCLXCom1_ConnectionEstablished(sender As Object, e As EventArgs) Handles EthernetIPforCLXCom1.ConnectionEstablished
