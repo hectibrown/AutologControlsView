@@ -100,17 +100,18 @@ Partial Class HomeDashBoard
         Dim DataPoint34 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 10.0R)
         Dim Series35 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim DataPoint35 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 20.0R)
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(HomeDashBoard))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LabelSorterSpeed = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.LabelNbRej = New System.Windows.Forms.Label()
         Me.LabelPiecesOut = New System.Windows.Forms.Label()
         Me.LabelPiecesIn = New System.Windows.Forms.Label()
         Me.LabelVolProj = New System.Windows.Forms.Label()
         Me.LabelSlashed = New System.Windows.Forms.Label()
-        Me.szProductionDisplay = New AdvancedHMIControls.BasicLabel()
-        Me.EthernetIPforCLXCom1 = New AdvancedHMIDrivers.EthernetIPforCLXCom(Me.components)
         Me.LabelLugFill = New System.Windows.Forms.Label()
         Me.LabelVolumeHour = New System.Windows.Forms.Label()
         Me.LabelVolumePmp = New System.Windows.Forms.Label()
@@ -121,11 +122,9 @@ Partial Class HomeDashBoard
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Timer1000 = New System.Windows.Forms.Timer(Me.components)
         Me.DateLabel = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Timer500 = New System.Windows.Forms.Timer(Me.components)
         Me.TrackBar1 = New System.Windows.Forms.TrackBar()
         Me.TrackBar2 = New System.Windows.Forms.TrackBar()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -139,8 +138,7 @@ Partial Class HomeDashBoard
         Me.MenuStrip1 = New DarkUI.Controls.DarkMenuStrip()
         Me.SystemeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateMesssagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Timer10000 = New System.Windows.Forms.Timer(Me.components)
+        Me.LabelDebug = New System.Windows.Forms.Label()
         Me.TimerMarquee = New System.Windows.Forms.Timer(Me.components)
         Me.ScrollingText1 = New ScrollingTextControl.ScrollingText()
         Me.CommsOk = New System.Windows.Forms.PictureBox()
@@ -154,10 +152,32 @@ Partial Class HomeDashBoard
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.DataSubscriber21 = New AdvancedHMIControls.DataSubscriber2(Me.components)
+        Me.ErrorBarOptiSLash = New System.Windows.Forms.ProgressBar()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.OptiReedgeLabel = New System.Windows.Forms.Label()
+        Me.ErrorBarSorterRejects = New System.Windows.Forms.ProgressBar()
+        Me.OptiResawLabel = New System.Windows.Forms.Label()
+        Me.ErrorBarOptiResaw = New System.Windows.Forms.ProgressBar()
+        Me.SorterRejects = New System.Windows.Forms.Label()
+        Me.ErrorBarOptiReedge = New System.Windows.Forms.ProgressBar()
+        Me.OptiRemanLabel = New System.Windows.Forms.Label()
+        Me.ErrorBarOptiReman = New System.Windows.Forms.ProgressBar()
+        Me.OptiSLashLabel = New System.Windows.Forms.Label()
+        Me.History = New System.Windows.Forms.DataGridView()
+        Me.DateAndTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SortId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomDim = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Species = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Densité = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EthernetIPforCLXCom1 = New AdvancedHMIDrivers.EthernetIPforCLXCom(Me.components)
         Me.DataSubscriber22 = New AdvancedHMIControls.DataSubscriber2(Me.components)
+        Me.LabelMsgNb = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
-        CType(Me.EthernetIPforCLXCom1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -169,7 +189,9 @@ Partial Class HomeDashBoard
         CType(Me.GradeBarChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DestBarChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.KpiBackGround, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSubscriber21, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        CType(Me.History, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EthernetIPforCLXCom1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSubscriber22, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -184,7 +206,7 @@ Partial Class HomeDashBoard
         Me.Label1.Location = New System.Drawing.Point(3, -5)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(15, 15, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(213, 52)
+        Me.Label1.Size = New System.Drawing.Size(150, 41)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Volume (BF)"
         '
@@ -194,13 +216,13 @@ Partial Class HomeDashBoard
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.LabelSorterSpeed)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.LabelNbRej)
         Me.Panel1.Controls.Add(Me.LabelPiecesOut)
         Me.Panel1.Controls.Add(Me.LabelPiecesIn)
         Me.Panel1.Controls.Add(Me.LabelVolProj)
         Me.Panel1.Controls.Add(Me.LabelSlashed)
-        Me.Panel1.Controls.Add(Me.szProductionDisplay)
         Me.Panel1.Controls.Add(Me.LabelLugFill)
         Me.Panel1.Controls.Add(Me.LabelVolumeHour)
         Me.Panel1.Controls.Add(Me.LabelVolumePmp)
@@ -212,11 +234,23 @@ Partial Class HomeDashBoard
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(-1, 121)
+        Me.Panel1.Location = New System.Drawing.Point(-1, 117)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(401, 750)
+        Me.Panel1.Size = New System.Drawing.Size(393, 739)
         Me.Panel1.TabIndex = 285
+        '
+        'LabelSorterSpeed
+        '
+        Me.LabelSorterSpeed.AutoSize = True
+        Me.LabelSorterSpeed.BackColor = System.Drawing.Color.Transparent
+        Me.LabelSorterSpeed.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSorterSpeed.ForeColor = System.Drawing.Color.White
+        Me.LabelSorterSpeed.Location = New System.Drawing.Point(53, 694)
+        Me.LabelSorterSpeed.Name = "LabelSorterSpeed"
+        Me.LabelSorterSpeed.Size = New System.Drawing.Size(166, 31)
+        Me.LabelSorterSpeed.TabIndex = 290
+        Me.LabelSorterSpeed.Text = "SorterSpeed"
         '
         'Label5
         '
@@ -229,7 +263,7 @@ Partial Class HomeDashBoard
         Me.Label5.Location = New System.Drawing.Point(3, 637)
         Me.Label5.Name = "Label5"
         Me.Label5.Padding = New System.Windows.Forms.Padding(15, 15, 0, 0)
-        Me.Label5.Size = New System.Drawing.Size(219, 52)
+        Me.Label5.Size = New System.Drawing.Size(155, 41)
         Me.Label5.TabIndex = 289
         Me.Label5.Text = "Sorter Speed"
         '
@@ -241,7 +275,7 @@ Partial Class HomeDashBoard
         Me.LabelNbRej.ForeColor = System.Drawing.Color.White
         Me.LabelNbRej.Location = New System.Drawing.Point(53, 528)
         Me.LabelNbRej.Name = "LabelNbRej"
-        Me.LabelNbRej.Size = New System.Drawing.Size(235, 47)
+        Me.LabelNbRej.Size = New System.Drawing.Size(156, 31)
         Me.LabelNbRej.TabIndex = 288
         Me.LabelNbRej.Text = "dNbRejects"
         '
@@ -253,7 +287,7 @@ Partial Class HomeDashBoard
         Me.LabelPiecesOut.ForeColor = System.Drawing.Color.White
         Me.LabelPiecesOut.Location = New System.Drawing.Point(53, 446)
         Me.LabelPiecesOut.Name = "LabelPiecesOut"
-        Me.LabelPiecesOut.Size = New System.Drawing.Size(287, 47)
+        Me.LabelPiecesOut.Size = New System.Drawing.Size(190, 31)
         Me.LabelPiecesOut.TabIndex = 287
         Me.LabelPiecesOut.Text = "dNbPiecesOut"
         '
@@ -265,7 +299,7 @@ Partial Class HomeDashBoard
         Me.LabelPiecesIn.ForeColor = System.Drawing.Color.White
         Me.LabelPiecesIn.Location = New System.Drawing.Point(53, 369)
         Me.LabelPiecesIn.Name = "LabelPiecesIn"
-        Me.LabelPiecesIn.Size = New System.Drawing.Size(255, 47)
+        Me.LabelPiecesIn.Size = New System.Drawing.Size(169, 31)
         Me.LabelPiecesIn.TabIndex = 286
         Me.LabelPiecesIn.Text = "dNbPiecesIn"
         '
@@ -277,7 +311,7 @@ Partial Class HomeDashBoard
         Me.LabelVolProj.ForeColor = System.Drawing.Color.White
         Me.LabelVolProj.Location = New System.Drawing.Point(53, 204)
         Me.LabelVolProj.Name = "LabelVolProj"
-        Me.LabelVolProj.Size = New System.Drawing.Size(257, 47)
+        Me.LabelVolProj.Size = New System.Drawing.Size(168, 31)
         Me.LabelVolProj.TabIndex = 284
         Me.LabelVolProj.Text = "dVolumeProj"
         '
@@ -289,66 +323,9 @@ Partial Class HomeDashBoard
         Me.LabelSlashed.ForeColor = System.Drawing.Color.White
         Me.LabelSlashed.Location = New System.Drawing.Point(53, 609)
         Me.LabelSlashed.Name = "LabelSlashed"
-        Me.LabelSlashed.Size = New System.Drawing.Size(246, 47)
+        Me.LabelSlashed.Size = New System.Drawing.Size(162, 31)
         Me.LabelSlashed.TabIndex = 283
         Me.LabelSlashed.Text = "dNbSlashed"
-        '
-        'szProductionDisplay
-        '
-        Me.szProductionDisplay.AllowDrop = True
-        Me.szProductionDisplay.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.szProductionDisplay.AutoSize = True
-        Me.szProductionDisplay.BackColor = System.Drawing.Color.Transparent
-        Me.szProductionDisplay.BooleanDisplay = AdvancedHMIControls.BasicLabel.BooleanDisplayOption.TrueFalse
-        Me.szProductionDisplay.ComComponent = Me.EthernetIPforCLXCom1
-        Me.szProductionDisplay.DisplayAsTime = False
-        Me.szProductionDisplay.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.szProductionDisplay.ForeColor = System.Drawing.Color.White
-        Me.szProductionDisplay.Highlight = False
-        Me.szProductionDisplay.HighlightColor = System.Drawing.Color.Red
-        Me.szProductionDisplay.HighlightForeColor = System.Drawing.Color.White
-        Me.szProductionDisplay.HighlightKeyCharacter = "!"
-        Me.szProductionDisplay.InterpretValueAsBCD = False
-        Me.szProductionDisplay.KeypadAlphanumeric = False
-        Me.szProductionDisplay.KeypadFont = New System.Drawing.Font("Arial", 10.0!)
-        Me.szProductionDisplay.KeypadFontColor = System.Drawing.Color.WhiteSmoke
-        Me.szProductionDisplay.KeypadMaxValue = 0R
-        Me.szProductionDisplay.KeypadMinValue = 0R
-        Me.szProductionDisplay.KeypadScaleFactor = 1.0R
-        Me.szProductionDisplay.KeypadShowCurrentValue = False
-        Me.szProductionDisplay.KeypadText = Nothing
-        Me.szProductionDisplay.KeypadWidth = 300
-        Me.szProductionDisplay.Location = New System.Drawing.Point(52, 685)
-        Me.szProductionDisplay.Name = "szProductionDisplay"
-        Me.szProductionDisplay.NumericFormat = Nothing
-        Me.szProductionDisplay.PLCAddressKeypad = ""
-        Me.szProductionDisplay.PLCAddressValue = "g_ActLug.Master.Encoder.Data.dRPM"
-        Me.szProductionDisplay.Size = New System.Drawing.Size(307, 46)
-        Me.szProductionDisplay.TabIndex = 284
-        Me.szProductionDisplay.Text = "Speed Lugs/Min"
-        Me.szProductionDisplay.Value = "Speed"
-        Me.szProductionDisplay.ValueLeftPadCharacter = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.szProductionDisplay.ValueLeftPadLength = 0
-        Me.szProductionDisplay.ValuePrefix = Nothing
-        Me.szProductionDisplay.ValueScaleFactor = 1.0R
-        Me.szProductionDisplay.ValueSuffix = " Lugs/Min"
-        Me.szProductionDisplay.ValueToSubtractFrom = 0!
-        '
-        'EthernetIPforCLXCom1
-        '
-        Me.EthernetIPforCLXCom1.CIPConnectionSize = 508
-        Me.EthernetIPforCLXCom1.DisableMultiServiceRequest = False
-        Me.EthernetIPforCLXCom1.DisableSubscriptions = False
-        Me.EthernetIPforCLXCom1.IniFileName = ""
-        Me.EthernetIPforCLXCom1.IniFileSection = Nothing
-        Me.EthernetIPforCLXCom1.IPAddress = "150.150.10.151"
-        Me.EthernetIPforCLXCom1.PollRateOverride = 50
-        Me.EthernetIPforCLXCom1.Port = 44818
-        Me.EthernetIPforCLXCom1.ProcessorSlot = 0
-        Me.EthernetIPforCLXCom1.RoutePath = Nothing
-        Me.EthernetIPforCLXCom1.Timeout = 15000
         '
         'LabelLugFill
         '
@@ -358,7 +335,7 @@ Partial Class HomeDashBoard
         Me.LabelLugFill.ForeColor = System.Drawing.Color.White
         Me.LabelLugFill.Location = New System.Drawing.Point(53, 289)
         Me.LabelLugFill.Name = "LabelLugFill"
-        Me.LabelLugFill.Size = New System.Drawing.Size(252, 47)
+        Me.LabelLugFill.Size = New System.Drawing.Size(165, 31)
         Me.LabelLugFill.TabIndex = 282
         Me.LabelLugFill.Text = "dLugFillPerc"
         '
@@ -370,7 +347,7 @@ Partial Class HomeDashBoard
         Me.LabelVolumeHour.ForeColor = System.Drawing.Color.White
         Me.LabelVolumeHour.Location = New System.Drawing.Point(53, 127)
         Me.LabelVolumeHour.Name = "LabelVolumeHour"
-        Me.LabelVolumeHour.Size = New System.Drawing.Size(296, 47)
+        Me.LabelVolumeHour.Size = New System.Drawing.Size(194, 31)
         Me.LabelVolumeHour.TabIndex = 281
         Me.LabelVolumeHour.Text = "dVolumeHeure"
         '
@@ -382,7 +359,7 @@ Partial Class HomeDashBoard
         Me.LabelVolumePmp.ForeColor = System.Drawing.Color.White
         Me.LabelVolumePmp.Location = New System.Drawing.Point(53, 47)
         Me.LabelVolumePmp.Name = "LabelVolumePmp"
-        Me.LabelVolumePmp.Size = New System.Drawing.Size(183, 47)
+        Me.LabelVolumePmp.Size = New System.Drawing.Size(120, 31)
         Me.LabelVolumePmp.TabIndex = 280
         Me.LabelVolumePmp.Text = "dVolume"
         '
@@ -397,7 +374,7 @@ Partial Class HomeDashBoard
         Me.Label19.Location = New System.Drawing.Point(3, 317)
         Me.Label19.Name = "Label19"
         Me.Label19.Padding = New System.Windows.Forms.Padding(15, 15, 0, 0)
-        Me.Label19.Size = New System.Drawing.Size(245, 52)
+        Me.Label19.Size = New System.Drawing.Size(175, 41)
         Me.Label19.TabIndex = 278
         Me.Label19.Text = "Pieces Rentres"
         '
@@ -412,7 +389,7 @@ Partial Class HomeDashBoard
         Me.Label18.Location = New System.Drawing.Point(3, 397)
         Me.Label18.Name = "Label18"
         Me.Label18.Padding = New System.Windows.Forms.Padding(15, 15, 0, 0)
-        Me.Label18.Size = New System.Drawing.Size(234, 52)
+        Me.Label18.Size = New System.Drawing.Size(167, 41)
         Me.Label18.TabIndex = 276
         Me.Label18.Text = "Pieces Sorties"
         '
@@ -427,7 +404,7 @@ Partial Class HomeDashBoard
         Me.Label17.Location = New System.Drawing.Point(3, 474)
         Me.Label17.Name = "Label17"
         Me.Label17.Padding = New System.Windows.Forms.Padding(15, 15, 0, 0)
-        Me.Label17.Size = New System.Drawing.Size(240, 52)
+        Me.Label17.Size = New System.Drawing.Size(173, 41)
         Me.Label17.TabIndex = 274
         Me.Label17.Text = "Pieces Rejetés"
         '
@@ -442,7 +419,7 @@ Partial Class HomeDashBoard
         Me.Label16.Location = New System.Drawing.Point(3, 556)
         Me.Label16.Name = "Label16"
         Me.Label16.Padding = New System.Windows.Forms.Padding(15, 15, 0, 0)
-        Me.Label16.Size = New System.Drawing.Size(295, 52)
+        Me.Label16.Size = New System.Drawing.Size(209, 41)
         Me.Label16.TabIndex = 272
         Me.Label16.Text = "Pieces Deshiqueté"
         '
@@ -457,7 +434,7 @@ Partial Class HomeDashBoard
         Me.Label15.Location = New System.Drawing.Point(3, 233)
         Me.Label15.Name = "Label15"
         Me.Label15.Padding = New System.Windows.Forms.Padding(15, 15, 0, 0)
-        Me.Label15.Size = New System.Drawing.Size(330, 52)
+        Me.Label15.Size = New System.Drawing.Size(230, 41)
         Me.Label15.TabIndex = 270
         Me.Label15.Text = "Taquets Remplis (%)"
         '
@@ -472,7 +449,7 @@ Partial Class HomeDashBoard
         Me.Label3.Location = New System.Drawing.Point(3, 154)
         Me.Label3.Name = "Label3"
         Me.Label3.Padding = New System.Windows.Forms.Padding(15, 15, 0, 0)
-        Me.Label3.Size = New System.Drawing.Size(319, 52)
+        Me.Label3.Size = New System.Drawing.Size(222, 41)
         Me.Label3.TabIndex = 269
         Me.Label3.Text = "Volume projeté (BF)"
         '
@@ -487,13 +464,9 @@ Partial Class HomeDashBoard
         Me.Label2.Location = New System.Drawing.Point(3, 75)
         Me.Label2.Name = "Label2"
         Me.Label2.Padding = New System.Windows.Forms.Padding(15, 15, 0, 0)
-        Me.Label2.Size = New System.Drawing.Size(359, 52)
+        Me.Label2.Size = New System.Drawing.Size(248, 41)
         Me.Label2.TabIndex = 266
         Me.Label2.Text = "Volume par heure (BF)"
-        '
-        'Timer1000
-        '
-        Me.Timer1000.Interval = 1000
         '
         'DateLabel
         '
@@ -505,7 +478,7 @@ Partial Class HomeDashBoard
         Me.DateLabel.ForeColor = System.Drawing.SystemColors.Control
         Me.DateLabel.Location = New System.Drawing.Point(80, 18)
         Me.DateLabel.Name = "DateLabel"
-        Me.DateLabel.Size = New System.Drawing.Size(485, 46)
+        Me.DateLabel.Size = New System.Drawing.Size(331, 31)
         Me.DateLabel.TabIndex = 296
         Me.DateLabel.Text = "YYYY-MM-DD HH:MM:SS"
         '
@@ -516,12 +489,12 @@ Partial Class HomeDashBoard
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.ItemHeight = 25
+        Me.ComboBox1.ItemHeight = 16
         Me.ComboBox1.Items.AddRange(New Object() {"Off", "On"})
-        Me.ComboBox1.Location = New System.Drawing.Point(603, 22)
+        Me.ComboBox1.Location = New System.Drawing.Point(429, 18)
         Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(593, 33)
+        Me.ComboBox1.Size = New System.Drawing.Size(208, 24)
         Me.ComboBox1.TabIndex = 298
         Me.ComboBox1.Text = "Test on/off"
         '
@@ -533,26 +506,23 @@ Partial Class HomeDashBoard
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Aqua
-        Me.Label4.Location = New System.Drawing.Point(599, 0)
+        Me.Label4.Location = New System.Drawing.Point(425, -4)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(207, 25)
+        Me.Label4.Size = New System.Drawing.Size(149, 17)
         Me.Label4.TabIndex = 299
         Me.Label4.Text = "Interlock Message test"
-        '
-        'Timer500
-        '
         '
         'TrackBar1
         '
         Me.TrackBar1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TrackBar1.Location = New System.Drawing.Point(851, 16)
+        Me.TrackBar1.Location = New System.Drawing.Point(680, 18)
         Me.TrackBar1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TrackBar1.Maximum = 60
         Me.TrackBar1.Minimum = 1
         Me.TrackBar1.Name = "TrackBar1"
-        Me.TrackBar1.Size = New System.Drawing.Size(489, 129)
+        Me.TrackBar1.Size = New System.Drawing.Size(301, 45)
         Me.TrackBar1.TabIndex = 309
         Me.TrackBar1.Value = 5
         '
@@ -561,12 +531,12 @@ Partial Class HomeDashBoard
         Me.TrackBar2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TrackBar2.Location = New System.Drawing.Point(851, 71)
+        Me.TrackBar2.Location = New System.Drawing.Point(1028, 18)
         Me.TrackBar2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TrackBar2.Maximum = 25
         Me.TrackBar2.Minimum = 1
         Me.TrackBar2.Name = "TrackBar2"
-        Me.TrackBar2.Size = New System.Drawing.Size(489, 129)
+        Me.TrackBar2.Size = New System.Drawing.Size(301, 45)
         Me.TrackBar2.TabIndex = 310
         Me.TrackBar2.Value = 2
         '
@@ -578,9 +548,9 @@ Partial Class HomeDashBoard
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Aqua
-        Me.Label10.Location = New System.Drawing.Point(859, -2)
+        Me.Label10.Location = New System.Drawing.Point(688, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(181, 25)
+        Me.Label10.Size = New System.Drawing.Size(130, 17)
         Me.Label10.TabIndex = 311
         Me.Label10.Text = "Position Timer (ms)"
         '
@@ -592,9 +562,9 @@ Partial Class HomeDashBoard
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Aqua
-        Me.Label11.Location = New System.Drawing.Point(859, 52)
+        Me.Label11.Location = New System.Drawing.Point(1036, -1)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(99, 25)
+        Me.Label11.Size = New System.Drawing.Size(70, 17)
         Me.Label11.TabIndex = 312
         Me.Label11.Text = "pixel jump"
         '
@@ -603,9 +573,9 @@ Partial Class HomeDashBoard
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.Aqua
-        Me.Label12.Location = New System.Drawing.Point(1331, 16)
+        Me.Label12.Location = New System.Drawing.Point(987, 23)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(38, 25)
+        Me.Label12.Size = New System.Drawing.Size(26, 17)
         Me.Label12.TabIndex = 313
         Me.Label12.Text = "ms"
         '
@@ -614,9 +584,9 @@ Partial Class HomeDashBoard
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Aqua
-        Me.Label13.Location = New System.Drawing.Point(1331, 71)
+        Me.Label13.Location = New System.Drawing.Point(1335, 20)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(33, 25)
+        Me.Label13.Size = New System.Drawing.Size(22, 17)
         Me.Label13.TabIndex = 314
         Me.Label13.Text = "px"
         '
@@ -624,10 +594,10 @@ Partial Class HomeDashBoard
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.Panel2.Controls.Add(Me.DataGridView1)
-        Me.Panel2.Location = New System.Drawing.Point(0, 118)
+        Me.Panel2.Location = New System.Drawing.Point(725, 118)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1920, 740)
+        Me.Panel2.Size = New System.Drawing.Size(1175, 740)
         Me.Panel2.TabIndex = 315
         '
         'DataGridView1
@@ -660,7 +630,7 @@ Partial Class HomeDashBoard
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.OrangeRed
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridView1.Location = New System.Drawing.Point(13, 18)
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 18)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DataGridView1.Name = "DataGridView1"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -674,7 +644,7 @@ Partial Class HomeDashBoard
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 50
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(1859, 692)
+        Me.DataGridView1.Size = New System.Drawing.Size(1170, 706)
         Me.DataGridView1.TabIndex = 0
         '
         'Alarm
@@ -696,7 +666,7 @@ Partial Class HomeDashBoard
         Me.MenuStrip1.MdiWindowListItem = Me.SystemeToolStripMenuItem
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(5, 2, 0, 2)
-        Me.MenuStrip1.Size = New System.Drawing.Size(1920, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1910, 24)
         Me.MenuStrip1.TabIndex = 317
         Me.MenuStrip1.Text = "MenuStrip1"
         Me.MenuStrip1.Visible = False
@@ -708,33 +678,30 @@ Partial Class HomeDashBoard
         Me.SystemeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.SystemeToolStripMenuItem.MergeIndex = 10
         Me.SystemeToolStripMenuItem.Name = "SystemeToolStripMenuItem"
-        Me.SystemeToolStripMenuItem.Size = New System.Drawing.Size(94, 20)
+        Me.SystemeToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
         Me.SystemeToolStripMenuItem.Text = "&Systeme"
         '
         'UpdateMesssagesToolStripMenuItem
         '
         Me.UpdateMesssagesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.UpdateMesssagesToolStripMenuItem.Name = "UpdateMesssagesToolStripMenuItem"
-        Me.UpdateMesssagesToolStripMenuItem.Size = New System.Drawing.Size(263, 34)
+        Me.UpdateMesssagesToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.UpdateMesssagesToolStripMenuItem.Text = "&Update Messsages"
         '
-        'Label21
+        'LabelDebug
         '
-        Me.Label21.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.LabelDebug.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.ForeColor = System.Drawing.Color.Green
-        Me.Label21.Location = New System.Drawing.Point(41, 27)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(48, 20)
-        Me.Label21.TabIndex = 320
-        Me.Label21.Text = "dMsg"
-        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Timer10000
-        '
+        Me.LabelDebug.AutoSize = True
+        Me.LabelDebug.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelDebug.ForeColor = System.Drawing.Color.Green
+        Me.LabelDebug.Location = New System.Drawing.Point(41, 21)
+        Me.LabelDebug.Name = "LabelDebug"
+        Me.LabelDebug.Size = New System.Drawing.Size(33, 13)
+        Me.LabelDebug.TabIndex = 320
+        Me.LabelDebug.Text = "dMsg"
+        Me.LabelDebug.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TimerMarquee
         '
@@ -752,7 +719,7 @@ Partial Class HomeDashBoard
         Me.ScrollingText1.ScrollDirection = ScrollingTextControl.ScrollDirection.RightToLeft
         Me.ScrollingText1.ScrollText = "INTLK:SCROLLING TEXT 1"
         Me.ScrollingText1.ShowBorder = False
-        Me.ScrollingText1.Size = New System.Drawing.Size(1920, 153)
+        Me.ScrollingText1.Size = New System.Drawing.Size(1910, 153)
         Me.ScrollingText1.StopScrollOnMouseOver = False
         Me.ScrollingText1.TabIndex = 336
         Me.ScrollingText1.Text = "ScrollingText1"
@@ -776,7 +743,7 @@ Partial Class HomeDashBoard
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = Global.MfgControl.AdvancedHMI.My.Resources.Resources.Autolog_logo_Officiel_sans_texte_transparent_white
-        Me.PictureBox1.Location = New System.Drawing.Point(1479, 11)
+        Me.PictureBox1.Location = New System.Drawing.Point(1469, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(429, 103)
@@ -802,7 +769,7 @@ Partial Class HomeDashBoard
         ChartArea1.BorderColor = System.Drawing.Color.Transparent
         ChartArea1.Name = "ChartArea1"
         Me.LenghtBarChart.ChartAreas.Add(ChartArea1)
-        Me.LenghtBarChart.Location = New System.Drawing.Point(711, 337)
+        Me.LenghtBarChart.Location = New System.Drawing.Point(711, 328)
         Me.LenghtBarChart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LenghtBarChart.Name = "LenghtBarChart"
         Me.LenghtBarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None
@@ -932,7 +899,7 @@ Partial Class HomeDashBoard
         Me.LenghtBarChart.Series.Add(Series8)
         Me.LenghtBarChart.Series.Add(Series9)
         Me.LenghtBarChart.Series.Add(Series10)
-        Me.LenghtBarChart.Size = New System.Drawing.Size(1573, 390)
+        Me.LenghtBarChart.Size = New System.Drawing.Size(1563, 295)
         Me.LenghtBarChart.TabIndex = 338
         Me.LenghtBarChart.Text = "Chart1"
         '
@@ -954,7 +921,7 @@ Partial Class HomeDashBoard
         ChartArea2.BorderColor = System.Drawing.Color.Transparent
         ChartArea2.Name = "ChartArea1"
         Me.GradeBarChart.ChartAreas.Add(ChartArea2)
-        Me.GradeBarChart.Location = New System.Drawing.Point(711, 122)
+        Me.GradeBarChart.Location = New System.Drawing.Point(715, 119)
         Me.GradeBarChart.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GradeBarChart.Name = "GradeBarChart"
         Me.GradeBarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None
@@ -1084,7 +1051,7 @@ Partial Class HomeDashBoard
         Me.GradeBarChart.Series.Add(Series18)
         Me.GradeBarChart.Series.Add(Series19)
         Me.GradeBarChart.Series.Add(Series20)
-        Me.GradeBarChart.Size = New System.Drawing.Size(1573, 390)
+        Me.GradeBarChart.Size = New System.Drawing.Size(1559, 295)
         Me.GradeBarChart.TabIndex = 340
         Me.GradeBarChart.Text = "Chart1"
         '
@@ -1236,7 +1203,7 @@ Partial Class HomeDashBoard
         Me.DestBarChart.Series.Add(Series28)
         Me.DestBarChart.Series.Add(Series29)
         Me.DestBarChart.Series.Add(Series30)
-        Me.DestBarChart.Size = New System.Drawing.Size(1573, 390)
+        Me.DestBarChart.Size = New System.Drawing.Size(1563, 295)
         Me.DestBarChart.TabIndex = 341
         Me.DestBarChart.Text = "Chart1"
         '
@@ -1258,7 +1225,7 @@ Partial Class HomeDashBoard
         ChartArea4.BorderColor = System.Drawing.Color.Transparent
         ChartArea4.Name = "ChartArea1"
         Me.KpiBackGround.ChartAreas.Add(ChartArea4)
-        Me.KpiBackGround.Location = New System.Drawing.Point(423, 122)
+        Me.KpiBackGround.Location = New System.Drawing.Point(403, 93)
         Me.KpiBackGround.Name = "KpiBackGround"
         Me.KpiBackGround.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None
         Me.KpiBackGround.PaletteCustomColors = New System.Drawing.Color() {System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer)), System.Drawing.Color.Aquamarine, System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))}
@@ -1337,7 +1304,7 @@ Partial Class HomeDashBoard
         Me.KpiBackGround.Series.Add(Series33)
         Me.KpiBackGround.Series.Add(Series34)
         Me.KpiBackGround.Series.Add(Series35)
-        Me.KpiBackGround.Size = New System.Drawing.Size(320, 295)
+        Me.KpiBackGround.Size = New System.Drawing.Size(310, 270)
         Me.KpiBackGround.TabIndex = 342
         Me.KpiBackGround.Text = "Chart1"
         '
@@ -1346,9 +1313,9 @@ Partial Class HomeDashBoard
         Me.KpiBar1.BackColor = System.Drawing.Color.White
         Me.KpiBar1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!)
         Me.KpiBar1.ForeColor = System.Drawing.Color.White
-        Me.KpiBar1.Location = New System.Drawing.Point(423, 170)
+        Me.KpiBar1.Location = New System.Drawing.Point(423, 208)
         Me.KpiBar1.Name = "KpiBar1"
-        Me.KpiBar1.Size = New System.Drawing.Size(10, 80)
+        Me.KpiBar1.Size = New System.Drawing.Size(10, 89)
         Me.KpiBar1.TabIndex = 343
         Me.KpiBar1.Text = "|"
         '
@@ -1363,7 +1330,7 @@ Partial Class HomeDashBoard
         Me.Label6.Location = New System.Drawing.Point(436, 128)
         Me.Label6.Margin = New System.Windows.Forms.Padding(0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(373, 37)
+        Me.Label6.Size = New System.Drawing.Size(256, 26)
         Me.Label6.TabIndex = 290
         Me.Label6.Text = "Projected Production KPI"
         '
@@ -1378,9 +1345,9 @@ Partial Class HomeDashBoard
         Me.Label7.Location = New System.Drawing.Point(425, 265)
         Me.Label7.Margin = New System.Windows.Forms.Padding(0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(71, 20)
+        Me.Label7.Size = New System.Drawing.Size(47, 13)
         Me.Label7.TabIndex = 344
-        Me.Label7.Text = "300k BF"
+        Me.Label7.Text = "200k BF"
         '
         'Label8
         '
@@ -1390,12 +1357,12 @@ Partial Class HomeDashBoard
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.LightGray
-        Me.Label8.Location = New System.Drawing.Point(660, 265)
+        Me.Label8.Location = New System.Drawing.Point(634, 265)
         Me.Label8.Margin = New System.Windows.Forms.Padding(0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(71, 20)
+        Me.Label8.Size = New System.Drawing.Size(47, 13)
         Me.Label8.TabIndex = 345
-        Me.Label8.Text = "700k BF"
+        Me.Label8.Text = "300k BF"
         '
         'Label9
         '
@@ -1405,33 +1372,322 @@ Partial Class HomeDashBoard
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.LightGray
-        Me.Label9.Location = New System.Drawing.Point(541, 265)
+        Me.Label9.Location = New System.Drawing.Point(531, 265)
         Me.Label9.Margin = New System.Windows.Forms.Padding(0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(71, 20)
+        Me.Label9.Size = New System.Drawing.Size(47, 13)
         Me.Label9.TabIndex = 346
-        Me.Label9.Text = "500k BF"
+        Me.Label9.Text = "250k BF"
         '
-        'DataSubscriber21
+        'ErrorBarOptiSLash
         '
-        Me.DataSubscriber21.ComComponent = Me.EthernetIPforCLXCom1
-        Me.DataSubscriber21.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_szDisplayString", 1))
+        Me.ErrorBarOptiSLash.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.ErrorBarOptiSLash.Location = New System.Drawing.Point(16, 44)
+        Me.ErrorBarOptiSLash.Maximum = 15
+        Me.ErrorBarOptiSLash.Name = "ErrorBarOptiSLash"
+        Me.ErrorBarOptiSLash.Size = New System.Drawing.Size(288, 47)
+        Me.ErrorBarOptiSLash.Step = 1
+        Me.ErrorBarOptiSLash.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        Me.ErrorBarOptiSLash.TabIndex = 1
+        Me.ErrorBarOptiSLash.Value = 4
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.OptiReedgeLabel)
+        Me.Panel3.Controls.Add(Me.ErrorBarSorterRejects)
+        Me.Panel3.Controls.Add(Me.OptiResawLabel)
+        Me.Panel3.Controls.Add(Me.ErrorBarOptiResaw)
+        Me.Panel3.Controls.Add(Me.SorterRejects)
+        Me.Panel3.Controls.Add(Me.ErrorBarOptiReedge)
+        Me.Panel3.Controls.Add(Me.OptiRemanLabel)
+        Me.Panel3.Controls.Add(Me.ErrorBarOptiReman)
+        Me.Panel3.Controls.Add(Me.OptiSLashLabel)
+        Me.Panel3.Controls.Add(Me.ErrorBarOptiSLash)
+        Me.Panel3.Location = New System.Drawing.Point(395, 321)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(319, 521)
+        Me.Panel3.TabIndex = 1
+        '
+        'OptiReedgeLabel
+        '
+        Me.OptiReedgeLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OptiReedgeLabel.AutoSize = True
+        Me.OptiReedgeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptiReedgeLabel.ForeColor = System.Drawing.Color.LightGray
+        Me.OptiReedgeLabel.Location = New System.Drawing.Point(28, 208)
+        Me.OptiReedgeLabel.Margin = New System.Windows.Forms.Padding(0)
+        Me.OptiReedgeLabel.Name = "OptiReedgeLabel"
+        Me.OptiReedgeLabel.Size = New System.Drawing.Size(284, 26)
+        Me.OptiReedgeLabel.TabIndex = 355
+        Me.OptiReedgeLabel.Text = "Optimizer/Console Re-Edge"
+        '
+        'ErrorBarSorterRejects
+        '
+        Me.ErrorBarSorterRejects.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.ErrorBarSorterRejects.Location = New System.Drawing.Point(16, 434)
+        Me.ErrorBarSorterRejects.Maximum = 15
+        Me.ErrorBarSorterRejects.Name = "ErrorBarSorterRejects"
+        Me.ErrorBarSorterRejects.Size = New System.Drawing.Size(288, 47)
+        Me.ErrorBarSorterRejects.Step = 1
+        Me.ErrorBarSorterRejects.TabIndex = 354
+        Me.ErrorBarSorterRejects.Value = 4
+        '
+        'OptiResawLabel
+        '
+        Me.OptiResawLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OptiResawLabel.AutoSize = True
+        Me.OptiResawLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptiResawLabel.ForeColor = System.Drawing.Color.LightGray
+        Me.OptiResawLabel.Location = New System.Drawing.Point(28, 304)
+        Me.OptiResawLabel.Margin = New System.Windows.Forms.Padding(0)
+        Me.OptiResawLabel.Name = "OptiResawLabel"
+        Me.OptiResawLabel.Size = New System.Drawing.Size(265, 26)
+        Me.OptiResawLabel.TabIndex = 353
+        Me.OptiResawLabel.Text = "Optimizer/Console Resaw"
+        '
+        'ErrorBarOptiResaw
+        '
+        Me.ErrorBarOptiResaw.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.ErrorBarOptiResaw.Location = New System.Drawing.Point(16, 333)
+        Me.ErrorBarOptiResaw.Maximum = 15
+        Me.ErrorBarOptiResaw.Name = "ErrorBarOptiResaw"
+        Me.ErrorBarOptiResaw.Size = New System.Drawing.Size(288, 47)
+        Me.ErrorBarOptiResaw.Step = 1
+        Me.ErrorBarOptiResaw.Style = System.Windows.Forms.ProgressBarStyle.Marquee
+        Me.ErrorBarOptiResaw.TabIndex = 352
+        Me.ErrorBarOptiResaw.Value = 4
+        '
+        'SorterRejects
+        '
+        Me.SorterRejects.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SorterRejects.AutoSize = True
+        Me.SorterRejects.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SorterRejects.ForeColor = System.Drawing.Color.LightGray
+        Me.SorterRejects.Location = New System.Drawing.Point(86, 405)
+        Me.SorterRejects.Margin = New System.Windows.Forms.Padding(0)
+        Me.SorterRejects.Name = "SorterRejects"
+        Me.SorterRejects.Size = New System.Drawing.Size(150, 26)
+        Me.SorterRejects.TabIndex = 351
+        Me.SorterRejects.Text = "Sorter Rejects"
+        '
+        'ErrorBarOptiReedge
+        '
+        Me.ErrorBarOptiReedge.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.ErrorBarOptiReedge.Location = New System.Drawing.Point(16, 237)
+        Me.ErrorBarOptiReedge.Maximum = 15
+        Me.ErrorBarOptiReedge.Name = "ErrorBarOptiReedge"
+        Me.ErrorBarOptiReedge.Size = New System.Drawing.Size(288, 47)
+        Me.ErrorBarOptiReedge.Step = 1
+        Me.ErrorBarOptiReedge.TabIndex = 350
+        Me.ErrorBarOptiReedge.Value = 4
+        '
+        'OptiRemanLabel
+        '
+        Me.OptiRemanLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OptiRemanLabel.AutoSize = True
+        Me.OptiRemanLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptiRemanLabel.ForeColor = System.Drawing.Color.LightGray
+        Me.OptiRemanLabel.Location = New System.Drawing.Point(28, 113)
+        Me.OptiRemanLabel.Margin = New System.Windows.Forms.Padding(0)
+        Me.OptiRemanLabel.Name = "OptiRemanLabel"
+        Me.OptiRemanLabel.Size = New System.Drawing.Size(269, 26)
+        Me.OptiRemanLabel.TabIndex = 349
+        Me.OptiRemanLabel.Text = "Optimizer/Console Reman"
+        '
+        'ErrorBarOptiReman
+        '
+        Me.ErrorBarOptiReman.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.ErrorBarOptiReman.Location = New System.Drawing.Point(16, 142)
+        Me.ErrorBarOptiReman.Maximum = 15
+        Me.ErrorBarOptiReman.Name = "ErrorBarOptiReman"
+        Me.ErrorBarOptiReman.Size = New System.Drawing.Size(288, 47)
+        Me.ErrorBarOptiReman.Step = 1
+        Me.ErrorBarOptiReman.TabIndex = 348
+        Me.ErrorBarOptiReman.Value = 4
+        '
+        'OptiSLashLabel
+        '
+        Me.OptiSLashLabel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OptiSLashLabel.AutoSize = True
+        Me.OptiSLashLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptiSLashLabel.ForeColor = System.Drawing.Color.LightGray
+        Me.OptiSLashLabel.Location = New System.Drawing.Point(28, 15)
+        Me.OptiSLashLabel.Margin = New System.Windows.Forms.Padding(0)
+        Me.OptiSLashLabel.Name = "OptiSLashLabel"
+        Me.OptiSLashLabel.Size = New System.Drawing.Size(253, 26)
+        Me.OptiSLashLabel.TabIndex = 347
+        Me.OptiSLashLabel.Text = "Optimizer/Console Slash"
+        '
+        'History
+        '
+        Me.History.AllowUserToAddRows = False
+        Me.History.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
+        Me.History.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.History.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.History.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.History.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.History.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DateAndTime, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.Column1, Me.SortId, Me.NomDim, Me.Species, Me.Densité})
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.History.DefaultCellStyle = DataGridViewCellStyle5
+        Me.History.GridColor = System.Drawing.SystemColors.ButtonShadow
+        Me.History.Location = New System.Drawing.Point(725, 119)
+        Me.History.Margin = New System.Windows.Forms.Padding(2)
+        Me.History.Name = "History"
+        Me.History.ReadOnly = True
+        Me.History.RowHeadersVisible = False
+        Me.History.RowTemplate.Height = 24
+        Me.History.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.History.Size = New System.Drawing.Size(1174, 739)
+        Me.History.TabIndex = 347
+        '
+        'DateAndTime
+        '
+        Me.DateAndTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.DateAndTime.HeaderText = "Time"
+        Me.DateAndTime.Name = "DateAndTime"
+        Me.DateAndTime.ReadOnly = True
+        Me.DateAndTime.Width = 150
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Lug Id"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 60
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.DataGridViewTextBoxColumn3.HeaderText = "OptiId"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 60
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.DataGridViewTextBoxColumn4.HeaderText = "OptiDest"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.DataGridViewTextBoxColumn5.HeaderText = "SortDest"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.Column1.HeaderText = "Bin #"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 50
+        '
+        'SortId
+        '
+        Me.SortId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.SortId.HeaderText = "Sort Id"
+        Me.SortId.Name = "SortId"
+        Me.SortId.ReadOnly = True
+        Me.SortId.Width = 55
+        '
+        'NomDim
+        '
+        Me.NomDim.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.NomDim.HeaderText = "Nominal Dimensions"
+        Me.NomDim.Name = "NomDim"
+        Me.NomDim.ReadOnly = True
+        Me.NomDim.Width = 200
+        '
+        'Species
+        '
+        Me.Species.HeaderText = "Species/GMR/IDNA"
+        Me.Species.Name = "Species"
+        Me.Species.ReadOnly = True
+        Me.Species.Width = 131
+        '
+        'Densité
+        '
+        Me.Densité.HeaderText = "Densité"
+        Me.Densité.Name = "Densité"
+        Me.Densité.ReadOnly = True
+        Me.Densité.Width = 68
+        '
+        'EthernetIPforCLXCom1
+        '
+        Me.EthernetIPforCLXCom1.CIPConnectionSize = 508
+        Me.EthernetIPforCLXCom1.DisableMultiServiceRequest = False
+        Me.EthernetIPforCLXCom1.DisableSubscriptions = False
+        Me.EthernetIPforCLXCom1.IniFileName = ""
+        Me.EthernetIPforCLXCom1.IniFileSection = Nothing
+        Me.EthernetIPforCLXCom1.IPAddress = "150.150.10.151"
+        Me.EthernetIPforCLXCom1.PollRateOverride = 45
+        Me.EthernetIPforCLXCom1.Port = 44818
+        Me.EthernetIPforCLXCom1.ProcessorSlot = 0
+        Me.EthernetIPforCLXCom1.RoutePath = Nothing
+        Me.EthernetIPforCLXCom1.Timeout = 15000
         '
         'DataSubscriber22
         '
         Me.DataSubscriber22.ComComponent = Me.EthernetIPforCLXCom1
-        Me.DataSubscriber22.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_dAcvConnected", 1))
-        Me.DataSubscriber22.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_dAcvWatchDog", 1))
-        Me.DataSubscriber22.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_dAcvNbAlarms", 1))
-        Me.DataSubscriber22.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_stDashboard.szAlarm", 1))
+        Me.DataSubscriber22.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_stAcv.dWatchDog", 1))
+        Me.DataSubscriber22.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_stAcv.dNbAlarms", 1))
+        Me.DataSubscriber22.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_stAcv.dConnected", 1))
+        Me.DataSubscriber22.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_stAcv.dLugIdxHistory", 1))
+        Me.DataSubscriber22.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_stAcv.dTxMsgNb", 1))
+        Me.DataSubscriber22.PLCAddressValueItems.Add(New MfgControl.AdvancedHMI.Drivers.PLCAddressItem("g_stAcv.dRxMsgNb", 1))
+        '
+        'LabelMsgNb
+        '
+        Me.LabelMsgNb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelMsgNb.AutoSize = True
+        Me.LabelMsgNb.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelMsgNb.ForeColor = System.Drawing.Color.Green
+        Me.LabelMsgNb.Location = New System.Drawing.Point(41, 34)
+        Me.LabelMsgNb.Name = "LabelMsgNb"
+        Me.LabelMsgNb.Size = New System.Drawing.Size(33, 13)
+        Me.LabelMsgNb.TabIndex = 348
+        Me.LabelMsgNb.Text = "dMsg"
+        Me.LabelMsgNb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'HomeDashBoard
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1920, 1040)
+        Me.ClientSize = New System.Drawing.Size(1910, 1040)
         Me.ControlBox = False
+        Me.Controls.Add(Me.LabelMsgNb)
+        Me.Controls.Add(Me.History)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
@@ -1443,7 +1699,7 @@ Partial Class HomeDashBoard
         Me.Controls.Add(Me.LenghtBarChart)
         Me.Controls.Add(Me.ScrollingText1)
         Me.Controls.Add(Me.CommsOk)
-        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.LabelDebug)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
@@ -1468,7 +1724,6 @@ Partial Class HomeDashBoard
         Me.TransparencyKey = System.Drawing.Color.Lavender
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.EthernetIPforCLXCom1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
@@ -1481,23 +1736,23 @@ Partial Class HomeDashBoard
         CType(Me.GradeBarChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DestBarChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.KpiBackGround, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSubscriber21, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        CType(Me.History, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EthernetIPforCLXCom1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSubscriber22, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents EthernetIPforCLXCom1 As AdvancedHMIDrivers.EthernetIPforCLXCom
-    Friend WithEvents DataSubscriber21 As AdvancedHMIControls.DataSubscriber2
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents Timer1000 As Timer
     Friend WithEvents DateLabel As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents Timer500 As Timer
     Friend WithEvents TrackBar1 As TrackBar
     Friend WithEvents TrackBar2 As TrackBar
     Friend WithEvents Label10 As Label
@@ -1516,8 +1771,7 @@ Partial Class HomeDashBoard
     Friend WithEvents Alarm As DataGridViewTextBoxColumn
     Friend WithEvents SystemeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UpdateMesssagesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Label21 As Label
-    Friend WithEvents Timer10000 As Timer
+    Friend WithEvents LabelDebug As Label
     Friend WithEvents TimerMarquee As Timer
     Friend WithEvents CommsOk As PictureBox
     Friend WithEvents MenuStrip1 As DarkUI.Controls.DarkMenuStrip
@@ -1531,7 +1785,6 @@ Partial Class HomeDashBoard
     Friend WithEvents LabelLugFill As Label
     Friend WithEvents LabelVolumeHour As Label
     Friend WithEvents DataSubscriber22 As DataSubscriber2
-    Friend WithEvents szProductionDisplay As BasicLabel
     Friend WithEvents LenghtBarChart As DataVisualization.Charting.Chart
     Friend WithEvents Label5 As Label
     Friend WithEvents GradeBarChart As DataVisualization.Charting.Chart
@@ -1542,4 +1795,28 @@ Partial Class HomeDashBoard
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents ErrorBarOptiSLash As ProgressBar
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents OptiReedgeLabel As Label
+    Friend WithEvents ErrorBarSorterRejects As ProgressBar
+    Friend WithEvents OptiResawLabel As Label
+    Friend WithEvents ErrorBarOptiResaw As ProgressBar
+    Friend WithEvents SorterRejects As Label
+    Friend WithEvents ErrorBarOptiReedge As ProgressBar
+    Friend WithEvents OptiRemanLabel As Label
+    Friend WithEvents ErrorBarOptiReman As ProgressBar
+    Friend WithEvents OptiSLashLabel As Label
+    Friend WithEvents History As DataGridView
+    Friend WithEvents DateAndTime As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents SortId As DataGridViewTextBoxColumn
+    Friend WithEvents NomDim As DataGridViewTextBoxColumn
+    Friend WithEvents Species As DataGridViewTextBoxColumn
+    Friend WithEvents Densité As DataGridViewTextBoxColumn
+    Friend WithEvents LabelSorterSpeed As Label
+    Friend WithEvents LabelMsgNb As Label
 End Class

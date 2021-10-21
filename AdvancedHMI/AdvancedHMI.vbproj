@@ -27,7 +27,7 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>C:\Drive_D\Projects\026_GEO-7859\</PublishUrl>
+    <PublishUrl>C:\Drive_D\Projects\033_LEB-8282\Acv\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -37,7 +37,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>36</ApplicationRevision>
+    <ApplicationRevision>38</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -72,10 +72,10 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>98EC2831DB9E56149CBF3AD3039295C7605444CD</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>DBF34B901E4A42AEF10C40BE7B7D9084E1E52C5E</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>AdvancedHMI_3_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>AdvancedHMI_4_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -231,6 +231,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="BinControl.Designer.vb">
+      <DependentUpon>BinControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BinControl.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CarrigeSoln.Designer.vb">
       <DependentUpon>CarrigeSoln.vb</DependentUpon>
     </Compile>
@@ -261,7 +267,10 @@
     <Compile Include="Simulation.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Structures\StAcvMain.vb" />
     <Compile Include="Structures\stACVReportsTest.vb" />
+    <Compile Include="Structures\StBin.vb" />
+    <Compile Include="Structures\StErrorPercent.vb" />
     <Compile Include="Structures\StLugDataPlaner.vb" />
     <Compile Include="Structures\StLugData.vb" />
     <Compile Include="Structures\StAlarms.vb" />
@@ -322,6 +331,9 @@
     <Compile Include="Structures\stPieceBuffer.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BinControl.resx">
+      <DependentUpon>BinControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CarrigeSoln.resx">
       <DependentUpon>CarrigeSoln.vb</DependentUpon>
     </EmbeddedResource>
@@ -363,6 +375,7 @@
     <None Include="AdvancedHMI_1_TemporaryKey.pfx" />
     <None Include="AdvancedHMI_2_TemporaryKey.pfx" />
     <None Include="AdvancedHMI_3_TemporaryKey.pfx" />
+    <None Include="AdvancedHMI_4_TemporaryKey.pfx" />
     <None Include="AdvancedHMI_TemporaryKey.pfx" />
     <None Include="app.config" />
     <None Include="Documents\OpcDaComUage.pdf" />

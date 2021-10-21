@@ -80,6 +80,19 @@ Public Class Parent
         End If
     End Sub
 
+    Private Sub BinControlToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BinControlToolStripMenuItem.Click
+        BinControl.MdiParent = Me
+        BinControl.WindowState = FormWindowState.Normal
+        BinControl.Dock = DockStyle.Fill
+        BinControl.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        BinControl.ControlBox = False
+        BinControl.MaximizeBox = False
+        BinControl.MinimizeBox = False
+        BinControl.ShowIcon = False
+        BinControl.Text = "Bin Control"
+        BinControl.Show()
+    End Sub
+
     Private Sub HomeDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load, DashBoardToolStripMenuItem.Click
         HomeDashBoard.MdiParent = Me
         ToolStripManager.Merge(HomeDashBoard.MenuStrip1, Me.MenuStrip1)
@@ -144,6 +157,10 @@ Public Class Parent
             SawLine.Hide()
             SawLine.Dispose()
         End If
+        If BinControl.Visible Then
+            BinControl.Hide()
+            BinControl.Dispose()
+        End If
     End Sub
 
     Private Sub MinimizeAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MinimizeAllToolStripMenuItem.Click
@@ -152,6 +169,10 @@ Public Class Parent
         MiscParams.WindowState = 1
         History.WindowState = 1
         CarrigeSoln.WindowState = 1
+        Simulation.WindowState = 1
+        HistoryPlaneur.WindowState = 1
+        SawLine.WindowState = 1
+        BinControl.WindowState = 1
     End Sub
 
     Private Sub SimulationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SimulationToolStripMenuItem.Click
@@ -195,5 +216,7 @@ Public Class Parent
         SawLine.Show()
         Me.Text = "Autolog Controls View - Saw Line"
     End Sub
+
+
 End Class
 

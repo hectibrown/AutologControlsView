@@ -314,3 +314,4 @@ C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMI\obj\Deb
 C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMI\obj\Debug\AdvancedHMI.exe
 C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMI\obj\Debug\AdvancedHMI.xml
 C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMI\obj\Debug\AdvancedHMI.pdb
+C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMI\obj\Debug\MfgControl.AdvancedHMI.BinControl.resources

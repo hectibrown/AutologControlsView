@@ -58,7 +58,6 @@ C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMIDrivers\
 C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMIDrivers\bin\Debug\OpcComRcw.dll
 C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMIDrivers\bin\Debug\OpcNetApi.xml
 C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMIDrivers\bin\Debug\OpcNetApi.Com.xml
-C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMIDrivers\obj\Debug\AdvancedHMIDrivers.vbprojAssemblyReference.cache
 C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMIDrivers\obj\Debug\AdvancedHMIDrivers.Resources.resources
 C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMIDrivers\obj\Debug\AdvancedHMIDrivers.vbproj.GenerateResource.cache
 C:\Drive_D\VCProjects\2021_01_18-Base\AdvancedHMIv399xBeta28\AdvancedHMIDrivers\obj\Debug\AdvancedHMIDrivers.vbproj.CoreCompileInputs.cache

@@ -7,12 +7,12 @@ End Class
 Public Class StAlarmBits
     Public bIntlk(255) As Boolean
     Public bMsg(255) As Boolean
-    Public bLineError(255) As Boolean
+    Public dLineError As Int32
 End Class
 Public Class StAlarmIdDetail
     Public dIntlkIdDetail(249) As Int32
-    Public dLeIdDetail(249) As Int32
     Public dMsgIdDetail(249) As Int32
+    Public dLeIdDetail As Int32
 End Class
 
 Public Class StAlarms
